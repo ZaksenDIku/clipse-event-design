@@ -2,7 +2,7 @@ const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden">
       {/* Subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(43_72%_55%/0.04)_0%,transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(11_50%_65%/0.06)_0%,transparent_70%)]" />
       
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {/* Gold accent line */}

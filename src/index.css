@@ -15,7 +15,7 @@
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 82%;
 
-    --primary: 43 72% 55%;
+    --primary: 11 50% 65%;
     --primary-foreground: 0 0% 4%;
 
     --secondary: 0 0% 10%;
@@ -24,7 +24,7 @@
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 50%;
 
-    --accent: 43 72% 55%;
+    --accent: 11 50% 65%;
     --accent-foreground: 0 0% 4%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,23 +32,23 @@
 
     --border: 0 0% 18%;
     --input: 0 0% 18%;
-    --ring: 43 72% 55%;
+    --ring: 11 50% 65%;
 
     --radius: 0px;
 
     --platinum: 0 0% 78%;
-    --gold: 43 72% 55%;
-    --gold-light: 43 60% 65%;
-    --gold-dark: 43 80% 40%;
+    --gold: 11 50% 65%;
+    --gold-light: 11 40% 75%;
+    --gold-dark: 11 55% 50%;
 
     --sidebar-background: 0 0% 6%;
     --sidebar-foreground: 0 0% 82%;
-    --sidebar-primary: 43 72% 55%;
+    --sidebar-primary: 11 50% 65%;
     --sidebar-primary-foreground: 0 0% 4%;
     --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 82%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 43 72% 55%;
+    --sidebar-ring: 11 50% 65%;
   }
 
   .dark {
@@ -58,27 +58,27 @@
     --card-foreground: 0 0% 82%;
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 82%;
-    --primary: 43 72% 55%;
+    --primary: 11 50% 65%;
     --primary-foreground: 0 0% 4%;
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 75%;
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 50%;
-    --accent: 43 72% 55%;
+    --accent: 11 50% 65%;
     --accent-foreground: 0 0% 4%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 0 0% 18%;
     --input: 0 0% 18%;
-    --ring: 43 72% 55%;
+    --ring: 11 50% 65%;
     --sidebar-background: 0 0% 6%;
     --sidebar-foreground: 0 0% 82%;
-    --sidebar-primary: 43 72% 55%;
+    --sidebar-primary: 11 50% 65%;
     --sidebar-primary-foreground: 0 0% 4%;
     --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 82%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 43 72% 55%;
+    --sidebar-ring: 11 50% 65%;
   }
 }
 
@@ -121,7 +121,7 @@
   }
 
   .gold-glow {
-    box-shadow: 0 0 30px -10px hsl(43 72% 55% / 0.3);
+    box-shadow: 0 0 30px -10px hsl(11 50% 65% / 0.3);
   }
 
   .text-platinum {

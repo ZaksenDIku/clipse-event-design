@@ -20,11 +20,12 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
-        <button onClick={() => scrollTo("hero")} className="font-serif text-xl tracking-[0.3em] text-primary">
-          ÉCLIPSE
+        <button onClick={() => scrollTo("hero")} className="flex flex-col items-center">
+          <span className="font-serif text-xl tracking-[0.3em] text-primary">ÉCLIPSE</span>
+          <span className="text-[0.45rem] tracking-[0.3em] uppercase text-foreground/85 mt-0.5" style={{ fontFamily: "'Cinzel', serif" }}>COPENHAGEN</span>
         </button>
         <div className="hidden md:flex items-center gap-10">
-          {["about", "services", "gallery", "contact"].map((item) => (
+          {["about", "services", "contact"].map((item) => (
             <button
               key={item}
               onClick={() => scrollTo(item)}

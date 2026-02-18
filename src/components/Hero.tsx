@@ -9,12 +9,10 @@ const Hero = () => {
         <div className="gold-line w-24 mx-auto mb-12 opacity-0 animate-fade-in" />
         
         {/* Subheading */}
-        <p
-          className="text-xs tracking-[0.4em] uppercase text-primary mb-8 opacity-0 animate-fade-up font-body"
-          style={{ animationDelay: "0.3s" }}
-        >
-          Copenhagen
-        </p>
+        <div className="opacity-0 animate-fade-up mb-10" style={{ animationDelay: "0.3s" }}>
+          <p className="font-serif text-3xl md:text-5xl tracking-[0.3em] text-primary">ÉCLIPSE</p>
+          <p className="text-[0.55rem] md:text-[0.7rem] tracking-[0.3em] uppercase text-foreground/85 mt-1" style={{ fontFamily: "'Cinzel', serif" }}>COPENHAGEN</p>
+        </div>
 
         {/* Main heading */}
         <h1

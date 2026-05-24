@@ -31,28 +31,36 @@ const Contact = () => {
 
         <form
           className="space-y-8"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
+          action="https://formsubmit.co/zakariya.berrhi@gmail.com"
+          method="POST"
         >
+          <input type="hidden" name="_subject" value="New message from Éclipse Copenhagen" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
           <div>
             <input
+              name="name"
               type="text"
               placeholder="Full Name"
+              required
               className="w-full bg-transparent border-b border-platinum/20 py-4 text-foreground font-body text-base tracking-wide placeholder:text-foreground/30 focus:outline-none focus:border-primary/60 transition-colors duration-500"
             />
           </div>
           <div>
             <input
+              name="email"
               type="email"
               placeholder="Email Address"
+              required
               className="w-full bg-transparent border-b border-platinum/20 py-4 text-foreground font-body text-base tracking-wide placeholder:text-foreground/30 focus:outline-none focus:border-primary/60 transition-colors duration-500"
             />
           </div>
           <div>
             <textarea
+              name="message"
               placeholder="Your Message"
               rows={4}
+              required
               className="w-full bg-transparent border-b border-platinum/20 py-4 text-foreground font-body text-base tracking-wide placeholder:text-foreground/30 focus:outline-none focus:border-primary/60 transition-colors duration-500 resize-none"
             />
           </div>

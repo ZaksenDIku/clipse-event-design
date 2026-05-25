@@ -3,7 +3,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 const Contact = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "fallback" | "error">("idle");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,6 +20,15 @@ const Contact = () => {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+    const mailto = new URL("mailto:zakariya.berrhi@gmail.com");
+    mailto.searchParams.set("subject", "New message from Éclipse Copenhagen");
+    mailto.searchParams.set(
+      "body",
+      [`Name: ${name}`, `Email: ${email}`, "", message].join("\n"),
+    );
 
     try {
       const response = await fetch("https://formsubmit.co/ajax/zakariya.berrhi@gmail.com", {
@@ -37,7 +46,8 @@ const Contact = () => {
       form.reset();
       setStatus("sent");
     } catch {
-      setStatus("error");
+      window.location.href = mailto.toString();
+      setStatus("fallback");
     }
   };
 
@@ -104,6 +114,11 @@ const Contact = () => {
           {status === "sent" && (
             <p className="text-center text-sm tracking-wide text-primary">
               Your message has been sent.
+            </p>
+          )}
+          {status === "fallback" && (
+            <p className="text-center text-sm tracking-wide text-primary">
+              Your email app has been opened with the message ready to send.
             </p>
           )}
           {status === "error" && (

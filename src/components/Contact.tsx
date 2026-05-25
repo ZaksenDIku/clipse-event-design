@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 const Contact = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -12,6 +13,33 @@ const Contact = () => {
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("sending");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/zakariya.berrhi@gmail.com", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Message could not be sent");
+      }
+
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <section id="contact" className="py-32 md:py-44 bg-secondary/30">
@@ -31,12 +59,12 @@ const Contact = () => {
 
         <form
           className="space-y-8"
-          action="https://formsubmit.co/zakariya.berrhi@gmail.com"
-          method="POST"
+          onSubmit={handleSubmit}
         >
           <input type="hidden" name="_subject" value="New message from Éclipse Copenhagen" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" />
           <div>
             <input
               name="name"
@@ -67,11 +95,22 @@ const Contact = () => {
           <div className="pt-4">
             <button
               type="submit"
+              disabled={status === "sending"}
               className="w-full border border-primary/40 text-primary py-4 text-sm tracking-[0.3em] uppercase font-body hover:bg-primary hover:text-primary-foreground transition-all duration-500"
             >
-              Send Message
+              {status === "sending" ? "Sending..." : "Send Message"}
             </button>
           </div>
+          {status === "sent" && (
+            <p className="text-center text-sm tracking-wide text-primary">
+              Your message has been sent.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-center text-sm tracking-wide text-destructive">
+              Something went wrong. Please try again.
+            </p>
+          )}
         </form>
       </div>
     </section>

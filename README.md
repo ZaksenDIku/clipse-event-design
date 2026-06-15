@@ -22,9 +22,14 @@ Build for production:
 npm run build
 ```
 
+Preview the production build:
+
+```sh
+npm run preview
+```
+
 Run tests:
 
 ```sh
 npm run test
 ```
-

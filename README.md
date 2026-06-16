@@ -33,3 +33,9 @@ Run tests:
 ```sh
 npm run test
 ```
+
+Run linting:
+
+```sh
+npm run lint
+```
